@@ -1,0 +1,14 @@
+
+{
+  "/itunesProxy": {
+    "target":  {
+      "host": "itunes.apple.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "pathRewrite": {"/itunesProxy" : "/search"},
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
