@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { PlayerComponent } from './player/player.component';
+import { SearchboxComponent } from './search/searchbox/searchbox.component';
+import { SearchresultComponent } from './search/searchresult/searchresult.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
-    PlayerComponent
+    PlayerComponent,
+    SearchboxComponent,
+    SearchresultComponent
   ],
   imports: [
     BrowserModule,
