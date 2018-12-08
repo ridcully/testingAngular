@@ -16,10 +16,20 @@ export class SearchHttpService {
   constructor (private http: HttpClient, private srs: SearchResultsService) {}
 
   search (term: string) {
-    const options = term ? { params: new HttpParams().set('term', term) } : {};
+    // set to default
+    this.srs.Selected = -1;
+    this.srs.Tracks = [];
+
+    if (term == '') {
+      return;
+    }
+
+    // do http request
+    const options = term ? { params: new HttpParams().set('term', term).set('kind', 'song') } : {};
 
     this.http.get(this.baseUrl, options).subscribe(
       (value:object) => {
+        // if we got any results, fill the results array.
         if (value['resultCount'] >= 0) {
           for (let one of value['results']) {
             let a = new Artist(
