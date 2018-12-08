@@ -1,3 +1,29 @@
-<p>
-  player works!
-</p>
+<p *ngIf="Tracks.Selected < 0; else showPlayer">Please do a search first and a select a Track to play.</p>
+<ng-template #showPlayer>
+
+  <div class="row">
+    <div class="col-12">
+      <strong>{{ Tracks.Tracks[Tracks.Selected].Name }}</strong> by <strong>{{ Tracks.Tracks[Tracks.Selected].Artist.Name }}</strong>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <img [src]="Tracks.Tracks[Tracks.Selected].Artwork.ExtraLarge" style="max-width: 500px; max-height: 500px;" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-1">
+      <button *ngIf="Tracks.Selected > 0" class="btn" (click)="previousSong()">previous</button>
+    </div>
+    <div class="col-6">
+      <audio controls>
+        <source src="{{ Tracks.Tracks[Tracks.Selected].PreviewUrl }}" type="audio/mp4">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="col-2">
+      <button *ngIf="Tracks.Selected < Tracks.Tracks.length" class="btn" (click)="nextSong()">next</button>
+    </div>
+  </div>
+
+</ng-template>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 import {SearchResultsService} from '../../searchResults.service';
 
@@ -9,12 +10,13 @@ import {SearchResultsService} from '../../searchResults.service';
 })
 export class SearchresultComponent implements OnInit {
 
-  constructor(public Tracks: SearchResultsService) { }
+  constructor(public Tracks: SearchResultsService, private router: Router) { }
 
   ngOnInit() {
   }
 
   showPlayer(idx: number) {
-    console.log('Show Log: ' + idx.toString());
+    this.Tracks.Selected = idx;
+    this.router.navigate(['/player']);
   }
 }
