@@ -1,10 +1,8 @@
-<form>
-  <div class="row">
-    <div class="col-11">
-      <input type="text" class="form-control" placeholder="Your search term...">
-    </div>
-    <div class="col-1 text-right">
-      <button type="submit" class="btn btn-primary"> > </button>
-    </div>
+<div class="row">
+  <div class="col-11">
+    <input type="text" class="form-control" placeholder="Your search term..." #searchTem>
   </div>
-</form>
+  <div class="col-1 text-right">
+    <button type="submit" class="btn btn-primary" (click)="doSearch(searchTem)"> > </button>
+  </div>
+</div>

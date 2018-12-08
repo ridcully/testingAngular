@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { PlayerComponent } from './player/player.component';
 import { SearchboxComponent } from './search/searchbox/searchbox.component';
 import { SearchresultComponent } from './search/searchresult/searchresult.component';
+import {SearchResultsService} from './searchResults.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { SearchresultComponent } from './search/searchresult/searchresult.compon
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SearchResultsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

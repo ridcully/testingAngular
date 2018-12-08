@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
+import {SearchHttpService} from './searchHttp.service';
+
 @Component({
   selector: 'app-searchbox',
   templateUrl: './searchbox.component.html',
-  styleUrls: ['./searchbox.component.css']
+  styleUrls: ['./searchbox.component.css'],
+  providers: [SearchHttpService]
 })
 export class SearchboxComponent implements OnInit {
 
-  constructor() { }
+  constructor(private shs: SearchHttpService) { }
 
   ngOnInit() {
   }
 
+  doSearch(searchTem: HTMLInputElement) {
+    this.shs.search(searchTem.value);
+  }
 }

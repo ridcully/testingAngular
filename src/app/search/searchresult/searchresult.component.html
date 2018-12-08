@@ -1,1 +1,48 @@
-<p>No results.</p>
+<div class="row">
+  <div class="col-12">
+    <p *ngIf="Tracks.Tracks.length <= 0; else showResults">No results.</p>
+    <ng-template #showResults>
+      <div class="row">
+        <div class="col-2">
+          <strong>Track</strong>
+        </div>
+        <div class="col-2">
+          <strong>Artist</strong>
+        </div>
+        <div class="col-2">
+          <strong>Collection</strong>
+        </div>
+        <div class="col-2">
+          <strong>Length</strong>
+        </div>
+        <div class="col-2">
+          <strong>Genre</strong>
+        </div>
+        <div class="col-2">
+          <strong>Price</strong>
+        </div>
+      </div>
+
+      <div class="row border-top" *ngFor="let track of Tracks.Tracks; index as i" (click)="showPlayer(i)" style="cursor: pointer;">
+        <div class="col-2">
+          {{ track.Name }}
+        </div>
+        <div class="col-2">
+          {{ track.Artist.Name }}
+        </div>
+        <div class="col-2">
+          {{ track.Collection.Name }}
+        </div>
+        <div class="col-2">
+          {{ track.Length }}
+        </div>
+        <div class="col-2">
+         {{ track.PrimaryGenre }}
+        </div>
+        <div class="col-2">
+          {{ track.Price }}
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
