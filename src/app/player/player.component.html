@@ -28,6 +28,13 @@
   </div>
 
   <div class="row">
+    <div class="col-6 offset-3 text-center">
+      Share with
+      <app-share [Title]="Track.Name" [Url]="Track.Url"></app-share>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-5 text-right">Title</div>
     <div class="col-7">{{ Track.Name }}</div>
   </div>

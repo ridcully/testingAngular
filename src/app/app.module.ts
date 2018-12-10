@@ -14,6 +14,7 @@ import {SearchresultComponent} from './search/searchresult/searchresult.componen
 import {SearchResultsService} from './searchResults.service';
 import {OrderBy} from './search/searchbox/orderBy.pipe';
 import { AudioElementComponent } from './player/audio-element/audio-element.component';
+import { ShareComponent } from './player/share/share.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AudioElementComponent } from './player/audio-element/audio-element.comp
     SearchboxComponent,
     SearchresultComponent,
     AudioElementComponent,
+    ShareComponent,
     OrderBy
   ],
   imports: [
