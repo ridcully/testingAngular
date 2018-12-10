@@ -16,6 +16,7 @@ export class SearchresultComponent implements OnInit {
   }
 
   showPlayer(idx: number) {
+    // redirect to player component.
     this.Tracks.Selected = idx;
     this.router.navigate(['/player']);
   }

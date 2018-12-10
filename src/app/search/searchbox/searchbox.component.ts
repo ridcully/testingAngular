@@ -6,6 +6,7 @@ import {SearchHttpService} from './searchHttp.service';
   selector: 'app-searchbox',
   templateUrl: './searchbox.component.html',
   styleUrls: ['./searchbox.component.css'],
+
   providers: [SearchHttpService]
 })
 export class SearchboxComponent implements OnInit {
@@ -16,6 +17,7 @@ export class SearchboxComponent implements OnInit {
   }
 
   doSearch(searchTem: HTMLInputElement) {
+    // call the search service
     this.shs.search(searchTem.value);
   }
 }

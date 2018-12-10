@@ -20,13 +20,15 @@ export class SearchHttpService {
     this.srs.Selected = -1;
     this.srs.Tracks = [];
 
+    // when no search term is given, just leave the function
     if (term == '') {
       return;
     }
 
-    // do http request
+    // define parameters
     const options = term ? { params: new HttpParams().set('term', term).set('kind', 'song') } : {};
 
+    // do http request
     this.http.get(this.baseUrl, options).subscribe(
       (value:object) => {
         // if we got any results, fill the results array.

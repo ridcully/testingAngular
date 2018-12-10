@@ -1,28 +1,67 @@
-<p *ngIf="Tracks.Selected < 0; else showPlayer">Please do a search first and a select a Track to play.</p>
+<p *ngIf="Total <= 0; else showPlayer">Please do a search first and a select a Track to play.</p>
 <ng-template #showPlayer>
 
   <div class="row">
     <div class="col-12">
-      <strong>{{ Tracks.Tracks[Tracks.Selected].Name }}</strong> by <strong>{{ Tracks.Tracks[Tracks.Selected].Artist.Name }}</strong>
+      <strong>{{ Track.Name }}</strong> by <strong>{{ Track.Artist.Name }}</strong>
   </div>
   </div>
   <div class="row">
-    <div class="col-12 text-center">
-      <img [src]="Tracks.Tracks[Tracks.Selected].Artwork.ExtraLarge" style="max-width: 500px; max-height: 500px;" />
+    <div class="col-2 text-center">
+    </div>
+    <div class="col-8 text-center">
+      <img [src]="Track.Artwork.Large" style="max-width: 500px; max-height: 500px;" />
+    </div>
+    <div class="col-2 text-center">
     </div>
   </div>
   <div class="row">
-    <div class="col-2 offset-1">
-      <button *ngIf="Tracks.Selected > 0" class="btn" (click)="previousSong()">previous</button>
+    <div class="col-2 text-right offset-1" style="padding-top: 9px;">
+      <button *ngIf="Selected > 0" class="btn" (click)="previousSong()" title="Previous Title">&#60;</button>
     </div>
-    <div class="col-6">
+    <div class="col-6 text-center">
       <audio controls>
-        <source src="{{ Tracks.Tracks[Tracks.Selected].PreviewUrl }}" type="audio/mp4">
+        <source src="{{ Track.PreviewUrl }}" type="audio/mp4">
         Your browser does not support the audio element.
       </audio>
     </div>
-    <div class="col-2">
-      <button *ngIf="Tracks.Selected < Tracks.Tracks.length" class="btn" (click)="nextSong()">next</button>
+    <div class="col-2 text-left" style="padding-top: 9px;">
+      <button *ngIf="Selected < Total" class="btn" (click)="nextSong()" title="Next Title">	&#62;</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5 text-right">Title</div>
+    <div class="col-7">{{ Track.Name }}</div>
+  </div>
+  <div class="row">
+    <div class="col-5 text-right">Artist</div>
+    <div class="col-6">{{ Track.Artist.Name }}</div>
+  </div>
+  <div class="row">
+    <div class="col-5 text-right">Album</div>
+    <div class="col-7">{{ Track.Collection.Name }}</div>
+  </div>
+  <div class="row">
+    <div class="col-5 text-right">Released</div>
+    <div class="col-7">{{ Track.ReadableReleaseDate }}</div>
+  </div>
+  <div class="row">
+    <div class="col-5 text-right">Length</div>
+    <div class="col-7">{{ Track.ReadableLength }}</div>
+  </div>
+  <div class="row">
+    <div class="col-5 text-right">Genre</div>
+    <div class="col-7">{{ Track.PrimaryGenre }}</div>
+  </div>
+  <div class="row">
+    <div class="col-5 text-right">Price</div>
+    <div class="col-7">{{ Track.ReadablePrice }}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <a href="{{ Track.Url }}" target="_blank">More Information on iTunes.</a>
     </div>
   </div>
 

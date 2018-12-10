@@ -2,47 +2,45 @@
   <div class="col-12">
     <p *ngIf="Tracks.Tracks.length <= 0; else showResults">No results.</p>
     <ng-template #showResults>
-      <div class="row">
-        <div class="col-2">
-          <strong>Track</strong>
-        </div>
-        <div class="col-2">
-          <strong>Artist</strong>
-        </div>
-        <div class="col-2">
-          <strong>Collection</strong>
-        </div>
-        <div class="col-2">
-          <strong>Length</strong>
-        </div>
-        <div class="col-2">
-          <strong>Genre</strong>
-        </div>
-        <div class="col-2">
-          <strong>Price</strong>
-        </div>
-      </div>
+      <table>
+        <tr>
+          <th>&nbsp;</th>
+          <th>Track</th>
+          <th>Artist</th>
+          <th>Album</th>
+          <th>Length</th>
+          <th>Released</th>
+          <th>Genre</th>
+          <th>Price</th>
+        </tr>
 
-      <div class="row border-top" *ngFor="let track of Tracks.Tracks; index as i" (click)="showPlayer(i)" style="cursor: pointer;">
-        <div class="col-2">
-          {{ track.Name }}
-        </div>
-        <div class="col-2">
-          {{ track.Artist.Name }}
-        </div>
-        <div class="col-2">
-          {{ track.Collection.Name }}
-        </div>
-        <div class="col-2">
-          {{ track.Length }}
-        </div>
-        <div class="col-2">
-         {{ track.PrimaryGenre }}
-        </div>
-        <div class="col-2">
-          {{ track.Price }}
-        </div>
-      </div>
+        <tr *ngFor="let track of Tracks.Tracks; index as i" (click)="showPlayer(i)" style="cursor: pointer;">
+          <td>
+            <img src="{{ track.Artwork.ExtraSmall }}" />
+          </td>
+          <td>
+            {{ track.Name }}
+          </td>
+          <td>
+            {{ track.Artist.Name }}
+          </td>
+          <td>
+            {{ track.Collection.Name }}
+          </td>
+          <td>
+            {{ track.ReadableLength }}
+          </td>
+          <td>
+            {{ track.ReadableReleaseDate }}
+          </td>
+          <td>
+            {{ track.PrimaryGenre }}
+          </td>
+          <td>
+            {{ track.ReadablePrice }}
+          </td>
+        </tr>
+      </table>
     </ng-template>
   </div>
 </div>
