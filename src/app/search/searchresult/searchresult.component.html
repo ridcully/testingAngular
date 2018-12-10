@@ -5,16 +5,52 @@
       <table>
         <tr>
           <th>&nbsp;</th>
-          <th>Track</th>
+          <th (click)="sortName()" style="cursor: pointer; min-width: 80px;">
+            Track
+            <fa name="sort" *ngIf="SortType!='name'; else sortedName"></fa>
+            <ng-template #sortedName>
+              <fa name="sort-down" *ngIf="SortDir=='asc'; else sortedNameReverse"></fa>
+            </ng-template>
+            <ng-template #sortedNameReverse>
+              <fa name="sort-up"></fa>
+            </ng-template>
+          </th>
           <th>Artist</th>
           <th>Album</th>
-          <th>Length</th>
+          <th (click)="sortLength()" style="cursor: pointer; min-width: 80px;">
+            Length
+            <fa name="sort" *ngIf="SortType!='length'; else sortedLength"></fa>
+            <ng-template #sortedLength>
+              <fa name="sort-down" *ngIf="SortDir=='asc'; else sortedLengthReverse"></fa>
+            </ng-template>
+            <ng-template #sortedLengthReverse>
+              <fa name="sort-up"></fa>
+            </ng-template>
+          </th>
           <th>Released</th>
-          <th>Genre</th>
-          <th>Price</th>
+          <th (click)="sortGenre()" style="cursor: pointer; min-width: 80px;">
+            Genre
+            <fa name="sort" *ngIf="SortType!='genre'; else sortedGenre"></fa>
+            <ng-template #sortedGenre>
+              <fa name="sort-down" *ngIf="SortDir=='asc'; else sortedGenreReverse"></fa>
+            </ng-template>
+            <ng-template #sortedGenreReverse>
+              <fa name="sort-up"></fa>
+            </ng-template>
+          </th>
+          <th (click)="sortPrice()" style="cursor: pointer; min-width: 80px;">
+             Price
+            <fa name="sort" *ngIf="SortType!='price'; else sortedPrice"></fa>
+            <ng-template #sortedPrice>
+              <fa name="sort-down" *ngIf="SortDir=='asc'; else sortedPriceReverse"></fa>
+            </ng-template>
+            <ng-template #sortedPriceReverse>
+              <fa name="sort-up"></fa>
+            </ng-template>
+          </th>
         </tr>
 
-        <tr *ngFor="let track of Tracks.Tracks; index as i" (click)="showPlayer(i)" style="cursor: pointer;">
+        <tr *ngFor="let track of Tracks.Tracks | orderBy : SortType : SortDir; index as i" (click)="showPlayer(i)" style="cursor: pointer;">
           <td>
             <img src="{{ track.Artwork.ExtraSmall }}" />
           </td>

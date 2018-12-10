@@ -12,6 +12,7 @@ import {PlayerComponent} from './player/player.component';
 import {SearchboxComponent} from './search/searchbox/searchbox.component';
 import {SearchresultComponent} from './search/searchresult/searchresult.component';
 import {SearchResultsService} from './searchResults.service';
+import {OrderBy} from './search/searchbox/orderBy.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {SearchResultsService} from './searchResults.service';
     SearchComponent,
     PlayerComponent,
     SearchboxComponent,
-    SearchresultComponent
+    SearchresultComponent,
+    OrderBy
   ],
   imports: [
     BrowserModule,
