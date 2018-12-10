@@ -13,6 +13,7 @@ import {SearchboxComponent} from './search/searchbox/searchbox.component';
 import {SearchresultComponent} from './search/searchresult/searchresult.component';
 import {SearchResultsService} from './searchResults.service';
 import {OrderBy} from './search/searchbox/orderBy.pipe';
+import { AudioElementComponent } from './player/audio-element/audio-element.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {OrderBy} from './search/searchbox/orderBy.pipe';
     PlayerComponent,
     SearchboxComponent,
     SearchresultComponent,
+    AudioElementComponent,
     OrderBy
   ],
   imports: [

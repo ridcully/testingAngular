@@ -20,10 +20,7 @@
       <button *ngIf="Selected > 0" class="btn" (click)="previousSong()" title="Previous Title"><fa name="angle-double-left"></fa></button>
     </div>
     <div class="col-6 text-center">
-      <audio controls>
-        <source src="{{ Track.PreviewUrl }}" type="audio/mp4">
-        Your browser does not support the audio element.
-      </audio>
+      <app-audio-element [SourceUrl]="Track.PreviewUrl"></app-audio-element>
     </div>
     <div class="col-2 text-left" style="padding-top: 9px;">
       <button *ngIf="Selected < Total" class="btn" (click)="nextSong()" title="Next Title"><fa name="angle-double-right"></fa></button>
